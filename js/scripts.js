@@ -60,7 +60,39 @@
 				}else if($(this.element).hasClass("ani_up")){
 					$(this.element).addClass("animate__fadeInUp");
 					$(this.element).removeClass("ani_up");
+				}else if($(this.element).hasClass("ani_rnd")){
+					var rand = Math.floor(Math.random()*4);
+
+					switch(rand){
+						case 0:
+							$(this.element).addClass("animate__fadeInUp");
+							break;
+						case 1:
+							$(this.element).addClass("animate__fadeInLeft");
+							break;
+						case 2:
+							$(this.element).addClass("animate__fadeInRight");
+							break;
+						case 3:
+							$(this.element).addClass("animate__fadeInDown");
+							break;
+					}
+					$(this.element).removeClass("ani_rnd");
 				}
              }
         });
     });
+
+	// 가장 위로 버튼
+	$('#back-to-top').on('click',function(e){
+		e.preventDefault();
+		$('html,body').animate({scrollTop:0},600);
+	});
+	
+	$(window).scroll(function() {
+		if ($(document).scrollTop() > 100) {
+			$('#back-to-top').addClass('show');
+		}else{
+			$('#back-to-top').removeClass('show');
+		}
+	});
