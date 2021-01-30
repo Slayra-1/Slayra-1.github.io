@@ -96,3 +96,12 @@
 			$('#back-to-top').removeClass('show');
 		}
 	});
+
+	// 모바일화면 스크롤시 메뉴버튼 닫음
+	$(window).scroll(function(event){
+		var isCollapsed = $(".navbar-toggler").hasClass("collapsed");
+
+		if(isCollapsed == false){
+			$(".navbar-toggler").click();
+		}
+	});
